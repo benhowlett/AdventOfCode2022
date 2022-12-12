@@ -26,8 +26,8 @@ for row in range(len(trees)):
             else:
                 south = []                                      # check trees to the south
                 isVisible = True
-                for tree in range(row+1, len(trees)):
-                    south.append(trees[tree][column])
+                for tempRow in range(row+1, len(trees)):
+                    south.append(trees[tempRow][column])
                 for tree in south:
                     if tree >= trees[row][column]:
                         isVisible = False
@@ -36,8 +36,8 @@ for row in range(len(trees)):
                 else:
                     east = []                                      # check trees to the east
                     isVisible = True
-                    for tree in range(column+1, len(trees[row])):
-                        east.append(trees[row][tree])
+                    for tempColumn in range(column+1, len(trees[row])):
+                        east.append(trees[row][tempColumn])
                     for tree in east:
                         if tree >= trees[row][column]:
                             isVisible = False
@@ -46,8 +46,8 @@ for row in range(len(trees)):
                     else:
                         west = []                                      # check trees to the west
                         isVisible = True
-                        for tree in range(column):
-                            west.append(trees[row][tree])
+                        for tempColumn in range(column):
+                            west.append(trees[row][tempColumn])
                         for tree in west:
                             if tree >= trees[row][column]:
                                 isVisible = False
