@@ -21,18 +21,6 @@ def can_move(current, new):
     return ord(new) - ord(current) <= 1
     
 
-def find_all_paths(graph, start, end, path=[]):
-    path.append(start)
-    if start == end:
-        return path
-    paths = []
-    for node in graph[start]:
-        if node not in path:
-            newPaths = find_all_paths(graph, node, end, path)
-            for newPath in newPaths:
-                paths.append(newPath)
-    return paths
-
 def find_shortest_path(graph, start_node):
     unvisited_nodes = list(graph.keys())
     shortest_path = {}
@@ -65,7 +53,7 @@ def find_shortest_path(graph, start_node):
 
     return previous_nodes, shortest_path
 
-def print_result(previous_nodes, shortest_path, start_node, end_node):
+def get_result(previous_nodes, shortest_path, start_node, end_node):
     path = []
     node = end_node
 
@@ -137,4 +125,4 @@ for row in range(len(map)):
 
 previous_nodes, shortest_path = find_shortest_path(graph, start_node)
 
-print_result(previous_nodes, shortest_path, start_node, end_node)
+get_result(previous_nodes, shortest_path, start_node, end_node)
